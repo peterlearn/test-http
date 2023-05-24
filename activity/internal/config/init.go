@@ -3,8 +3,8 @@
 package config
 
 func init() {
-	mm["activity_war_makes_sham.json"] = shamCfg
-	mm["activity_open.json"] = openCfg
+	//mm["activity_war_makes_sham.json"] = shamCfg
+	//mm["activity_open.json"] = openCfg
 
 	// xcfg.Panic(xcfg.Watch("task_week_activity.json", taskWeekActiveCfg))
 	// xcfg.Panic(xcfg.Watch("task_week.json", taskWeekCfg))

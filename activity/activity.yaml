@@ -1,8 +1,16 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: xy3-1
+  labels:
+    name: xy3-1
+
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: activity
-  namespace: xy3-{SRV_NO}
+  namespace: xy3-1
 spec:
   selector:
     matchLabels:
@@ -18,7 +26,7 @@ spec:
     spec:
       containers:
       - name: activity
-        image: repo.qianz.com/xy3/activity:{IMAGE_VERSION}
+        image: docker.io/perterci/activity:v1
         imagePullPolicy: "Always"
         ports:
         - containerPort: 8000
@@ -36,32 +44,20 @@ spec:
         - name: APP_ID
           value: activity
         - name: K8S_NAMESPACE
-          value: xy3-{SRV_NO}
+          value: xy3-1
         - name: SERVERID
-          value: "{SRV_NO}"
+          value: 1
         - name: K8S_CROSS_NAMESPACE
           value: xy3-cross
-        volumeMounts:
-        - mountPath: /opt/service/configs
-          name: xyconfig
-        - mountPath: /opt/service/log
-          name: log-path
       imagePullSecrets:
       - name: qianzx
-      volumes:
-      - name: xyconfig
-        persistentVolumeClaim:
-          claimName: xy3-cfg-server-all-{SRV_NO}
-      - name: log-path
-        persistentVolumeClaim:
-          claimName: xy3-log-all-{SRV_NO}
 
 ---
 apiVersion: v1
 kind: Service
 metadata:
   name: activity
-  namespace: xy3-{SRV_NO}
+  namespace: xy3-1
 spec:
   selector:
     app: activity
