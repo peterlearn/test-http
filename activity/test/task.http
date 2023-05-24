@@ -1,0 +1,7 @@
+### 更新排行榜
+POST http://127.0.0.1:8109/task/GetDailyInfo HTTP/1.1
+content-type: application/json
+
+{
+    "UserId": 100111,
+}

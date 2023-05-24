@@ -1,0 +1,16 @@
+/.git
+/.idea
+*.bak
+
+# windows executable
+**.exe
+
+# linux binary
+/cmd/cmd
+/cmd/__debug_bin
+/cmd/log
+
+**.sum
+/test/debug.test
+
+/internal/config/debug.test

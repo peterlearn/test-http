@@ -1,0 +1,7 @@
+[Client]
+	name = "demo"
+	proto = "tcp"
+	addr = "172.13.6.184:6379"
+	password = "hys123.com"
+	idle = 10
+	active = 10

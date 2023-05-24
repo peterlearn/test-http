@@ -1,0 +1,17 @@
+build-activity:
+  stage: build
+  image: docker:latest
+  variables:
+    SERVICE_NAME: "activity"
+  only:
+    changes:
+      - activity/**
+  services:
+    - docker:dind
+  before_script:
+    - echo $DOCKER_PASSWORD | docker login --username=$DOCKER_HAIYANG --password-stdin registry-intl.ap-southeast-1.aliyuncs.com
+    - echo $DOCKER_PASSWORD | docker login --username=$DOCKER_RICHARD --password-stdin firerocksg-registry.ap-southeast-1.cr.aliyuncs.com 
+    - export IMAGE_NAME=registry-intl.ap-southeast-1.aliyuncs.com/firerocksg/xy3-$SERVICE_NAME:$CI_COMMIT_BRANCH
+  script:
+    - docker build --platform linux/amd64 -t "$IMAGE_NAME" -f  "$SERVICE_NAME"/Dockerfile .
+    - docker push "$IMAGE_NAME"
