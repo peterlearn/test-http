@@ -4,8 +4,8 @@ package service
 
 import (
 	"context"
+	pbactivity "test/activity"
 	"time"
-	pbactivity "x-proto/activity"
 )
 
 // ActivityVersion

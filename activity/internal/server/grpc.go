@@ -5,8 +5,8 @@ import (
 	"github.com/go-kratos/kratos/v2/transport/grpc"
 	"gitlab.okymo.com.tw/middle-end/kratos/pkg/conf/paladin"
 	"gitlab.okymo.com.tw/middle-end/kratos/pkg/net/rpc/warden"
+	pbactivity "test/activity"
 	"time"
-	pbactivity "x-proto/activity"
 	"x-server/activity/internal/service"
 )
 

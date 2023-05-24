@@ -2,7 +2,7 @@ package service
 
 import (
 	"github.com/google/wire"
-	activity "x-proto/activity"
+	activity "test/activity"
 )
 
 var ProviderSet = wire.NewSet(New)
